@@ -1,0 +1,39 @@
+.step {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    .centered-step {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .current-step {
+            display: block;
+            height: 100%;
+            border-radius: 50%;
+            text-align: center;
+            transition: 0.3s;
+            padding: 5px;
+            border: solid 1px black;
+
+            .step-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+
+                .icon {
+                    transform: scale(1.4);
+                }
+            }
+        }
+    }
+
+    .step-label {
+        font-size: 15px;
+        font-weight: 500;
+        color: rgb(90, 90, 90);
+    }
+}

@@ -1,0 +1,8 @@
+.divider {
+    --mat-divider-width: 3px;
+
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: 0 20px 0 20px;
+}

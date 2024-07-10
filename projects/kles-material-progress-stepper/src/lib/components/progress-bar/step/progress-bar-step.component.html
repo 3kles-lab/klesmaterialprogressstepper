@@ -1,0 +1,24 @@
+<div class="step" matTooltip="{{ step().errorMessage }}" [matTooltipPosition]="step().matTooltipPosition || 'above'">
+    <div class="centered-step">
+        <div [ngClass]="currentStep() ? 'current-step' : ''">
+            <div class="step-icon">
+                @if (step().status === 0) {
+                    <mat-icon class="icon" [ngStyle]="{ 'color': step().color ? step().color : 'rgb(60, 179, 113)' }">{{ step().iconSuccess || 'task_alt' }}</mat-icon>
+                }
+                @else if (step().status === 1) {
+                    <mat-spinner [diameter]="20"></mat-spinner>
+                }
+                @else if (step().status === 2) {
+                    <mat-icon class="icon" [ngStyle]="{ 'color': step().color ? step().color : 'red' }">{{ step().iconError || 'error' }}</mat-icon>
+                }
+                @else {
+                    <mat-icon class="icon" [ngStyle]="{ 'color': step().color ? step().color : 'black' }">{{ step().icon || 'more_horiz' }}</mat-icon>
+                }
+            </div>
+        </div>
+    </div>
+
+    @if (step().label) {
+        <span class="step-label">{{ step().label }}</span>
+    }
+</div>

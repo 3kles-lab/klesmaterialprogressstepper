@@ -1,5 +1,5 @@
 import { Component, input } from "@angular/core";
-import { ProgressBarStep } from "../progress-bar.component";
+import { ProgressBarStep } from "../../interfaces/progress-bar-step.interface";
 
 @Component({
     selector: 'progress-bar-step',

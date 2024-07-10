@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './modules/material.module';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
-import { ProgressBarStepComponent } from './components/progress-bar/step/progress-bar-step.component';
+import { ProgressBarStepComponent } from './components/step/progress-bar-step.component';
 
 const components = [
     ProgressBarComponent,

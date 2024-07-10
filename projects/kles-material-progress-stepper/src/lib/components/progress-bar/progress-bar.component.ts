@@ -1,25 +1,7 @@
 import { Component, input } from "@angular/core";
-import { TooltipPosition } from "@angular/material/tooltip";
 import { Subject } from "rxjs";
-
-export enum ProgressBarStatus {
-    SUCCESS,
-    PENDING,
-    ERROR,
-    STOP
-}
-
-export interface ProgressBarStep {
-    name: string;
-    label?: string;
-    icon?: string;
-    iconSuccess?: string;
-    iconError?: string;
-    status?: ProgressBarStatus;
-    errorMessage?: string;
-    color?: string;
-    matTooltipPosition?: TooltipPosition;
-}
+import { ProgressBarStep } from "../../interfaces/progress-bar-step.interface";
+import { ProgressBarStatus } from "../../enums/progress-bar-status.enum";
 
 @Component({
     selector: 'progress-bar',

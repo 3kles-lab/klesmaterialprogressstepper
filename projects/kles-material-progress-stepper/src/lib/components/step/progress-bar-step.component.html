@@ -1,4 +1,4 @@
-<div class="step" matTooltip="{{ step().errorMessage }}" [matTooltipPosition]="step().matTooltipPosition || 'above'">
+<div class="step" [matTooltip]="step().errorMessage" [matTooltipPosition]="step().matTooltipPosition || 'above'">
     <div class="centered-step">
         <div [ngClass]="currentStep() ? 'current-step' : ''">
             <div class="step-icon">

@@ -1,11 +1,5 @@
 <div style="display: flex;">
     @for (step of steps(); track step) {
-        @if (!$first) {
-            <div class="divider">
-                <mat-divider [ngStyle]="{ 'width': '100%', 'border-top-color': step.color ? step.color : (step.status === 0 ? 'rgb(60, 179, 113)' : (step.status === 2 ? 'red' : 'dimgray')) }"></mat-divider>
-            </div>
-        }
-
-        <progress-bar-step [step]="step" [currentStep]="currentStep === $index"></progress-bar-step>
+        <progress-bar-step [ngClass]="{ 'notFirstStep': $index !== 0 }" [step]="step" [firstStep]="$index === 0" [currentStep]="currentStep === $index"></progress-bar-step>
     }
 </div>

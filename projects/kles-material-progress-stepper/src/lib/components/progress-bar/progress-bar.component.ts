@@ -15,6 +15,8 @@ export class ProgressBarComponent {
     _onUpdateStep = new Subject<ProgressBarStep>();
     _onChangeStep = new Subject<ProgressBarStep>();
 
+    constructor() { }
+
     get currentStep(): number {
         return this._currentStep;
     }

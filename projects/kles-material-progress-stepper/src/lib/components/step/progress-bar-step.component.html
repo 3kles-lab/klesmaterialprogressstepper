@@ -1,24 +1,34 @@
-<div class="step" [matTooltip]="step().errorMessage" [matTooltipPosition]="step().matTooltipPosition || 'above'">
-    <div class="centered-step">
-        <div [ngClass]="currentStep() ? 'current-step' : ''">
+<div style="display: flex; height: 100%;">
+    @if (!firstStep()) {
+        <div class="divider">
+            <mat-divider class="step-separator"></mat-divider>
+        </div>
+    }
+
+    <div [ngClass]="{ 'step': true, 'current-step': currentStep() }" [matTooltip]="step().errorMessage || ''" [matTooltipPosition]="step().matTooltipPosition || 'above'">
+        <div class="centered-step">
             <div class="step-icon">
-                @if (step().status === 0) {
-                    <mat-icon class="icon" [ngStyle]="{ 'color': step().color ? step().color : 'rgb(60, 179, 113)' }">{{ step().iconSuccess || 'task_alt' }}</mat-icon>
-                }
-                @else if (step().status === 1) {
+                @if (step().status === 1) {
                     <mat-spinner [diameter]="20"></mat-spinner>
                 }
-                @else if (step().status === 2) {
-                    <mat-icon class="icon" [ngStyle]="{ 'color': step().color ? step().color : 'red' }">{{ step().iconError || 'error' }}</mat-icon>
-                }
                 @else {
-                    <mat-icon class="icon" [ngStyle]="{ 'color': step().color ? step().color : 'black' }">{{ step().icon || 'more_horiz' }}</mat-icon>
+                    <mat-icon class="icon">{{ icon }}</mat-icon>
                 }
             </div>
+            <!--<div [ngClass]="{ 'current-step': currentStep() }">
+                <div class="step-icon">
+                    @if (step().status === 1) {
+                        <mat-spinner [diameter]="20"></mat-spinner>
+                    }
+                    @else {
+                        <mat-icon class="icon">{{ icon }}</mat-icon>
+                    }
+                </div>
+            </div>-->
         </div>
-    </div>
 
-    @if (step().label) {
-        <span class="step-label">{{ step().label }}</span>
-    }
+        @if (step().label) {
+            <span class="step-label">{{ step().label }}</span>
+        }
+    </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core";
+import { Component, ElementRef, input, OnInit } from "@angular/core";
 import { Subject } from "rxjs";
 import { ProgressBarStep } from "../../interfaces/progress-bar-step.interface";
 import { ProgressBarStatus } from "../../enums/progress-bar-status.enum";
@@ -8,14 +8,21 @@ import { ProgressBarStatus } from "../../enums/progress-bar-status.enum";
     templateUrl: 'progress-bar.component.html',
     styleUrls: ['./progress-bar.component.scss']
 })
-export class ProgressBarComponent {
+export class ProgressBarComponent implements OnInit {
     steps = input.required<ProgressBarStep[]>();
+    direction = input<'row' | 'column'>();
+    fullsize = input<boolean>();
     private _currentStep: number = 0;
 
     _onUpdateStep = new Subject<ProgressBarStep>();
     _onChangeStep = new Subject<ProgressBarStep>();
 
-    constructor() { }
+    constructor(private element: ElementRef) { }
+
+    ngOnInit(): void {
+        this.element.nativeElement.style.setProperty('--dynamic-full-size-width', this.fullsize() && this.direction() !== 'column' ? '100%' : 'max-content');
+        this.element.nativeElement.style.setProperty('--dynamic-full-size-height', this.fullsize() && this.direction() === 'column' ? '100%' : 'max-content');
+    }
 
     get currentStep(): number {
         return this._currentStep;

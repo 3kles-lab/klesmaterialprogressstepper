@@ -1,34 +1,22 @@
-<div style="display: flex; height: 100%;">
+<div [ngClass]="direction() === 'column' ? 'step-column' : 'step-row'">
     @if (!firstStep()) {
         <div class="divider">
-            <mat-divider class="step-separator"></mat-divider>
+            <mat-divider [ngClass]="{ 'step-separator': true, 'step-separator-row': direction() === 'row', 'step-separator-column': direction() === 'column' }" [vertical]="direction() === 'column'"></mat-divider>
         </div>
     }
 
     <div [ngClass]="{ 'step': true, 'current-step': currentStep() }" [matTooltip]="step().errorMessage || ''" [matTooltipPosition]="step().matTooltipPosition || 'above'">
-        <div class="centered-step">
-            <div class="step-icon">
-                @if (step().status === 1) {
-                    <mat-spinner [diameter]="20"></mat-spinner>
-                }
-                @else {
-                    <mat-icon class="icon">{{ icon }}</mat-icon>
-                }
-            </div>
-            <!--<div [ngClass]="{ 'current-step': currentStep() }">
-                <div class="step-icon">
-                    @if (step().status === 1) {
-                        <mat-spinner [diameter]="20"></mat-spinner>
-                    }
-                    @else {
-                        <mat-icon class="icon">{{ icon }}</mat-icon>
-                    }
-                </div>
-            </div>-->
+        <div class="step-icon">
+            @if (step().status === 1) {
+                <mat-spinner [diameter]="24"></mat-spinner>
+            }
+            @else {
+                <mat-icon class="icon">{{ icon }}</mat-icon>
+            }
         </div>
 
         @if (step().label) {
-            <span class="step-label">{{ step().label }}</span>
+            <span class="step-label" align="center">{{ step().label }}</span>
         }
     </div>
 </div>

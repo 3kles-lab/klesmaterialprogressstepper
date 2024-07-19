@@ -1,5 +1,5 @@
-<div style="display: flex;">
+<div [ngClass]="{ 'steps-column': direction() === 'column', 'steps-row': direction() !== 'column' }">
     @for (step of steps(); track step) {
-        <progress-bar-step [ngClass]="{ 'notFirstStep': $index !== 0 }" [step]="step" [firstStep]="$index === 0" [currentStep]="currentStep === $index"></progress-bar-step>
+        <progress-bar-step [ngClass]="{ 'notFirstStep': $index !== 0 }" [step]="step" [direction]="direction() ? direction() : 'row'" [firstStep]="$index === 0" [currentStep]="currentStep === $index"></progress-bar-step>
     }
 </div>

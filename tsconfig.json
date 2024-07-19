@@ -23,6 +23,16 @@
       "ES2022",
       "dom"
     ],
+    "paths": {
+      "kles-material-progress-stepper": [
+        "dist/kles-material-progress-stepper/kles-material-progress-stepper",
+        "dist/kles-material-progress-stepper"
+      ],
+      "kles-material-progress-stepper/*": [
+        "dist/kles-material-progress-stepper/kles-material-progress-stepper",
+        "dist/kles-material-progress-stepper"
+      ]
+    },
     "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { ProgressBarComponent, ProgressBarStatus, ProgressBarStep } from 'dist/kles-material-progress-stepper';
+import { ProgressBarComponent, ProgressBarStatus, ProgressBarStep } from 'kles-material-progress-stepper';
 
 @Component({
     selector: 'app-root',
@@ -9,7 +9,13 @@ import { ProgressBarComponent, ProgressBarStatus, ProgressBarStep } from 'dist/k
 export class AppComponent {
     @ViewChild('progressBar', { static: true }) progressBar: ProgressBarComponent;
 
-    steps: ProgressBarStep[] = [{ name: 'step1', label: 'test', status: ProgressBarStatus.SUCCESS, iconSuccess: 'home' }, { name: 'step2', label: 'test2222222222', errorMessage: 'test', status: ProgressBarStatus.ERROR, color: 'blue'/*, matTooltipPosition: 'left'*/ }, { name: 'step3' }, { name: 'step4', label: 'test4' }, { name: 'step5', label: 'test5' }];
+    steps: ProgressBarStep[] = [
+        { name: 'step1', label: 'Fill out your home', status: ProgressBarStatus.SUCCESS/*, iconSuccess: 'home'*/ },
+        { name: 'step2', label: 'test2222222222', errorMessage: 'test', status: ProgressBarStatus.ERROR, color: 'red'/*, matTooltipPosition: 'left'*/ },
+        { name: 'step3' },
+        { name: 'step4', label: 'Fill out your name' },
+        { name: 'step5', label: 'Done' }
+    ];
 
     constructor() { }
 

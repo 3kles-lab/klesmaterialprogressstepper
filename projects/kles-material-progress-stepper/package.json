@@ -1,6 +1,23 @@
 {
   "name": "@3kles/kles-material-progress-stepper",
-  "version": "1.1.0",
+  "version": "1.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3kles-lab/kles-material-progress-stepper"
+  },
+  "keywords": [
+    "3KLES",
+    "Angular",
+    "Stepper",
+    "Progress",
+    "Material"
+  ],
+  "author": "3Kles Lab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/3kles-lab/kles-material-progress-stepper/issues"
+  },
+  "homepage": "https://github.com/3kles-lab/kles-material-progress-stepper",
   "peerDependencies": {
     "@angular/animations": "^17.3.11",
     "@angular/cdk": "^17.3.10",
